@@ -12,7 +12,7 @@
 <body>
     <div class="dashbaord-container">
         <nav>
-            <label>Hi, David</label>
+            <label>Hi, <span id="user-name"></span></label>
             <button>LOGOUT</button>
         </nav>
         <div class="table-container">
@@ -23,35 +23,22 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Created At</th>
-                        <th>Actions</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     <!-- Sample data, replace with your actual user data -->
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>johndoe@gmail.com</td>
-                        <td>8 Jan 2024</td>
-                        <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jane</td>
-                        <td>Smith</td>
-                        <td>jane@gmail.com</td>
-                        <td>8 Jan 2024</td>
-                        <td>
-                            <button class="edit-btn">Edit</button>
-                            <button class="delete-btn">Delete</button>
-                        </td>
-                    </tr>
-                    <!-- Add more rows as needed -->
                 </tbody>
             </table>
         </div>
     </div> 
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+    <script src="./scripts/firebase.js"></script>
+    <script src="./scripts/auth.js"></script>
+    <script src="./scripts/users.js"></script>
 </body>
 </html>
