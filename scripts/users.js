@@ -18,3 +18,36 @@
         })
     })
 })()
+
+// fetch logged-in user profile
+const getAuth = () => {
+  auth.onAuthStateChanged((userSession) => {
+    if(userSession){
+      console.log("Have a session")
+      db.collection("users").where('email', '==', userSession.email).get()
+      .then((querySnapshot) => {
+        if(!querySnapshot.empty){
+          const userData = querySnapshot.docs[0].data();
+          const firstName = userData.first_name;
+          const lastName = userData.last_name;
+          document.getElementById("user-name").innerHTML = `${firstName} ${lastName}`
+        }
+      })
+    }
+    else{
+      window.location.href="./login.html";
+    }
+  })
+}
+
+getAuth();
+
+const logout = () => {
+  auth.signOut().then(() => {
+    alert("User logged out");
+    window.location.href="./login.html"
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+}

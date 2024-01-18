@@ -34,6 +34,7 @@ const onLogin = () => {
     auth.signInWithEmailAndPassword(email, password)
     .then((userSession) => {
         alert("User logged In successfully")
+        window.location.href="./dashboard.html"
         console.log(userSession);
     })
     .catch((error) => {
